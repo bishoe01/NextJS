@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 
 export default function Detail() {
     const router = useRouter();
-    console.log(router);
+    const [title,id] = router.query.params || [];
     return(
-        <h4>{router.query.title || "Loding..."}</h4>
+        <h4>{title + id}</h4>
         
     )
 };
