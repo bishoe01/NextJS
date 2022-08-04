@@ -3,13 +3,14 @@ import ProjectItem from "../components/projects/project-item";
 import { NOTION_TOKEN } from "../config";
 import { DATABASE_ID } from "../config";
 export default function projects({projects}) {
-    console.log(projects);
     return (
         <Layout>
             <h1>총 프로젝트 {projects.results.length}</h1>
+            <div>
             {projects.results.map((aProject) => (
-                <ProjectItem key={aProject.id} data={aProject}></ProjectItem>
+                <ProjectItem key={aProject.id} data={aProject} url={aProject.cover.file.url}></ProjectItem>
             ))}
+            </div>
 
 
             
