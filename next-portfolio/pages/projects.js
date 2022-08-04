@@ -5,19 +5,21 @@ import { DATABASE_ID } from "../config";
 export default function projects({projects}) {
     return (
         <Layout>
-            <h1>총 프로젝트 {projects.results.length}</h1>
-            <div>
+            <div className="flex flex-col items-center justify-center min-h-screen px-3 mb-10">
+
+            <h1 className="text-4xl font-bold">프로젝트 : <span className="pl-6 text-blue-500">{projects.results.length}</span></h1>
+
+            <div className="grid grid-cols-1 gap-8 p-12 m-4 md:grid-cols-2">
             {projects.results.map((aProject) => (
                 <ProjectItem key={aProject.id} data={aProject} url={aProject.cover.file.url}></ProjectItem>
             ))}
             </div>
-
+            </div>
 
             
         </Layout>
     )
 };
-
 
 export async function getServerSideProps() {
 
@@ -46,7 +48,6 @@ export async function getServerSideProps() {
     const projectNames = projects.results.map((aProject)=> {
         projects_.push(aProject.properties.name.title[0].plain_text);
     })
-
 
     return {
         props: {
