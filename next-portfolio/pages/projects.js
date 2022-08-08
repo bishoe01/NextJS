@@ -29,7 +29,7 @@ export async function getServerSideProps() {
             Accept: 'application/json',
             'Notion-Version': '2022-02-22',
             'Content-Type': 'application/json',
-            Authorization: `Bearer secret_gA9FyZ7iu20Qkg0jaOHO6f1hhSWTufg7aL7QINsc8e4`
+            Authorization: `Bearer ${NOTION_TOKEN}`
         },
         body: JSON.stringify({ 
             sorts:[
@@ -41,17 +41,16 @@ export async function getServerSideProps() {
             page_size: 100 })
     };
 
-    const res = await fetch(`https://api.notion.com/v1/databases/1e53d4ed2fb240fab66347258d13762d/query`, options);
+    const res = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, options);
 
     const projects = await res.json();
-    let projects_ = [];
-    const projectNames = projects.results.map((aProject)=> {
-        projects_.push(aProject.properties.name.title[0].plain_text);
-    })
+    const projectNames = projects.results.map((aProject) =>(
+        aProject.properties.name.title[0].plain_text
+    ))
+
 
     return {
-        props: {
-            projects
-        }
+        props: { projects },
+        
     }
 }
