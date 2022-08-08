@@ -11,9 +11,9 @@ export default function projects({projects}) {
 
             <div className="flex justify-between gap-8 p-12 m-4 md:grid-cols-2">
             {projects.results.map((aProject) => (
-                <ProjectItem key={aProject.id} data={aProject} url={aProject.cover.file.url}></ProjectItem>
+                <ProjectItem key={aProject.id} data={aProject} url={aProject.cover.file.url}/>
             ))}
-            </div>
+                </div>
             </div>
 
             
@@ -51,6 +51,5 @@ export async function getServerSideProps() {
 
     return {
         props: { projects },
-        
     }
 }
