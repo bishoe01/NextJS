@@ -39,9 +39,10 @@ export default function ProjectItem({data, url}) {
             <div className="flex flex-col p-4 m-3">
             <h1 className="text-2xl font-bold">{projectTitle}</h1>
             <h3 className="mt-4 text-xl">{Description_}</h3>
+            
             <div className="flex items-start mt-2">
             {property_.tag.multi_select.map((tags) => (
-            <h1 className="px-2 py-1 mr-2 dark:text-emerald-300 m-2 rounded-md bg-sky-200 dark:bg-sky-700 w-30">{tags.name}</h1>))}
+            <h1 className="px-2 py-1 mr-2 dark:text-emerald-300 m-2 rounded-md bg-sky-200 dark:bg-sky-700 w-30" key={tags.id}>{tags.name}</h1>))}
             </div>
             
             <h3 className="my-1">{calculatedPeriod(start,end)} Days</h3>
