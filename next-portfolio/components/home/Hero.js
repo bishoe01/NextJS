@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Animation from "./animation";
+import Animation from "./Animation";
 import profile_img from '../../public/Profile_500.png';
 import Image from "next/image";
 import Introduce from "../introduce";
