@@ -20,9 +20,9 @@ export default function Header() {
                     <Link href="/projects">
                     <a className="mr-5 hover:text-gray-900">Projects</a>
                     </Link>
-                    <Link href="/info">
+                    {/* <Link href="/info">
                     <a className="mr-5 hover:text-gray-900">Info</a>
-                    </Link>
+                    </Link> */}
                     <a href="https://open.kakao.com/o/sqef8wte" className="mr-5 hover:text-gray-900">Contact</a>
                 </nav>
                 <DarkModeToggleButton></DarkModeToggleButton>
